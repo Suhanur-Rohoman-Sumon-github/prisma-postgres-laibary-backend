@@ -31,8 +31,8 @@ model Member {
   memberId String @id @default(uuid())
   name String
   email String
-  phone Int
-  membershipDate DateTime
+  phone String
+  membershipDate DateTime?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   @@map("members")
