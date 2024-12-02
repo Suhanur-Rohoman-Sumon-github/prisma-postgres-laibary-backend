@@ -2,6 +2,8 @@ import express, { Application, Request, Response } from 'express';
 
 import cors from 'cors';
 import router from './app/routes';
+import handleGlobalError from './app/error/globalErrorhandler';
+import notFoundRoute from './app/utils/notFoundRoute';
 
 
 const app: Application = express();
@@ -19,7 +21,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // handle 404 route
-// app.use(notFoundRoute);
-// app.use(handleGlobalError);
+app.use(notFoundRoute);
+app.use(handleGlobalError);
 
 export default app;
